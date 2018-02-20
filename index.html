@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Study Git</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="style.js"></script>
+</head>
+<body>
+<div class="container">
+	<h1>Команды</h1>
+	<ul class="git-list">
+		<li class="git-list__item">
+			<span class="git-list__command">git init</span>
+			<span class="git-list__description">Создание репозитория в существующем каталоге</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git clone</span>
+			<span class="git-list__description">Клонирование существующего репозитория</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git status</span>
+			<span class="git-list__description">Определение состояния файлов</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git add</span>
+			<span class="git-list__description">Многофункциональная команда: для добавления под версионный контроль новых файлов, для индексации изменений, а также для других целей(например для указания файлов с исправленным конфликтом слияния)</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git diff</span>
+			<span class="git-list__description">Для получения информации об измененных, но ещё не проиндексированных файлах</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git diff --staged</span>
+			<span class="git-list__description">Для сравнения индексированных изменений с последним коммитом. Нажитие клавиши q позволит выйти из процесса</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git commit</span>
+			<span class="git-list__description">Фиксация изменений</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git commit -m ""</span>
+			<span class="git-list__description">Фиксация изменений</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git commit -a -m ""</span>
+			<span class="git-list__description">Позволяет автоматически индексировать каждый уже отслеживаемый на момент коммита файл, позволяя обойтись без <i>git add</i></span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git rm</span>
+			<span class="git-list__description">Удаление файла из гита. После чего стоит сделать коммит, с комментарием об удалении</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git rm --cached название файла</span>
+			<span class="git-list__description">В удаленном репозитории файл исчезает. В локальном остается и не индексируется</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git mv file_from file_to</span>
+			<span class="git-list__description">Переименование файлов. Сочетание клавиш shift + f6 позволяется рефакторить</span>
+		</li>
+	</ul>
+	<h1>Просмотр истории коммитов</h1>
+	<ul class="git-list">
+		<li class="git-list__item">
+			<span class="git-list__command">git log</span>
+			<span class="git-list__description">Просмотр истории коммитов</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git log -p -2</span>
+			<span class="git-list__description">Один из наиболее полезных параметров — это -p, который показывает дельту (разницу/diff), привнесенную каждым коммитом. Вы также можете использовать -2, что ограничит вывод до 2-х последних записей</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git log -U1 --word-diff</span>
+			<span class="git-list__description">В некоторых ситуациях гораздо удобней просматривать внесённые изменения на уровне слов, а не на уровне строк.Дельты на уровне слов практически бесполезны при работе над программным кодом, но они буду очень кстати при работе над длинным текстом, таким как книга или диссертация.Также может быть полезно сократить обычные три строки контекста в выводе команды diff до одной строки, так как контекстом в данном случае являются слова, а не строки. Сделать это можно с помощью опции -U1 как было показано в примере выше</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git log --stat</span>
+			<span class="git-list__description">Получение краткой статистики по каждому коммиту</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git log --pretty=oneline</span>
+			<span class="git-list__description">Выводит каждый коммит в одну строку</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git log --pretty=format:"%h - %an, %ar : %s"</span>
+			<span class="git-list__description">Позволяет полностью создать собственный формат вывода лога</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git log --pretty=format:"%h %s" --graph</span>
+			<span class="git-list__description">параметр добавляет миленький ASCII-граф, показывающий историю ветвлений и слияний.</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">gitk --all</span>
+			<span class="git-list__description">Вызовет графический инструмент для визуализации истории коммитов</span>
+		</li>
+	</ul>
+	<h1>Отмена изменений</h1>
+	<ul class="git-list">
+		<li class="git-list__item">
+			<span class="git-list__command">git commit --amend</span>
+			<span class="git-list__description">Изменение последнего коммита</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git reset HEAD название файла</span>
+			<span class="git-list__description">Отмена индексации файла</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git checkout -- название файла</span>
+			<span class="git-list__description">Отмена изменений файла.</span>
+		</li>
+	</ul>
+	<h1>Работа с удалёнными репозиториями</h1>
+	<ul class="git-list">
+		<li class="git-list__item">
+			<span class="git-list__command">git remote</span>
+			<span class="git-list__description">Для просмотра, настроенных удаленных серверов</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git remote -v</span>
+			<span class="git-list__description">Для просмотра какому URL соответствует сокращённое имя в Git</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git remote add [сокращение] [url]</span>
+			<span class="git-list__description">Добавление удалённых репозиториев</span>
+		</li>
+	</ul>
+	<h1>Работа с удалёнными репозиториями</h1>
+	<ul class="git-list">
+		<li class="git-list__item">
+			<span class="git-list__command">git branch</span>
+			<span class="git-list__description">Создание новой ветки</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git branch название-ветки</span>
+			<span class="git-list__description">Создание новой ветки(переключение не произошло)</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git checkout название-ветки</span>
+			<span class="git-list__description">Переключение на ветку</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git checkout -b название ветки</span>
+			<span class="git-list__description">Создаем ветку и переключаемся в неё</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git merge название-ветки</span>
+			<span class="git-list__description">Включаем изменения из ветки в которой работали</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git branch -d название-ветки</span>
+			<span class="git-list__description">Удаление ветки. В случае, измененения из ветки не были перенесены, удаление не произойдет. Необходимо использовать заглавную букву 'D'</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git branch</span>
+			<span class="git-list__description">Список имеющихся веток</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git branch -v</span>
+			<span class="git-list__description">Посмотреть последний коммит каждой ветки</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git branch --merged</span>
+			<span class="git-list__description">Позволяет посмотреть ветки, которые были слиты с текущей. Ветки, перед которыми нет '*' можно удалять, т.к. они уже включены в мастер</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git branch --no-merged</span>
+			<span class="git-list__description">Позволяет посмотреть ветки, которые не слиты с мастером</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git push origin название ветки</span>
+			<span class="git-list__description">Преврашаем локальную ветку в удаленную</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git merge origin/название ветки</span>
+			<span class="git-list__description">Для слияния наработок в свою текущую рабочую ветку</span>
+		</li>
+		<li class="git-list__item">
+			<span class="git-list__command">git push origin :название ветки</span>
+			<span class="git-list__description">Удаленная ветка удаляется</span>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>
